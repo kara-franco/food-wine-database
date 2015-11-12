@@ -1,6 +1,3 @@
-
-
-
 -- Build tables -- 
 
 
@@ -57,24 +54,8 @@ FOREIGN KEY (`wine_id`) REFERENCES wine (`id`) ON DELETE RESTRICT ON UPDATE CASC
 
 -- insert temperatures into temp table -- 
 
-
-INSERT INTO temperature ( temp )
-VALUES ('41-48');
-
-INSERT INTO temperature ( temp )
-VALUES ('49-55');
-
-INSERT INTO temperature ( temp )
-VALUES ('50-60');
-
-INSERT INTO temperature ( temp )
-VALUES ('56-61');
-
-INSERT INTO temperature ( temp )
-VALUES ('62-68'); 
-
-INSERT INTO temperature ( temp )
-VALUES ('60-70'); 
+INSERT INTO temperature(temp)
+VALUES ('40-50'),('50-60'),('60-70'); 
 
 -- insert food data into food table --
 
@@ -94,88 +75,15 @@ VALUES ('Italy'), ('France'), ('Spain'), ('US'), ('Argentina'), ('Germany'), ('A
 -- insert grape_varieties into variety table --
 
 INSERT INTO grape_variety (grape_name)
-VALUES ('Pinot Noir'), ('Grenache'), ('Merlot'), ('Sangiovese'), ('Cabernet Sauvignon'), ('Syrah'), ('Malbec'), ('Pinot Grigio'), ('Mourverde'), ('Riesling'), ('Sauvignon Blanc'), ('Muscat'), ('Chardonnay'), ('Glera'), ('Tinta Roriz'), ('Pinotage'), ('Durif'), ('Touriga Nacional'), ('Meritage'), ('Zinfandel'), ('Cabernet Franc'), ('Tempranillo'), ('Nebblolo'), ('Barbera'), ('Mourvedre'), ('Gamay');
+VALUES ('Pinot Noir'), ('Grenache'), ('Merlot'), ('Sangiovese'), ('Cabernet Sauvignon'), ('Syrah'), ('Malbec'), ('Pinot Grigio'), ('Mourverde'), ('Riesling'), ('Sauvignon Blanc'), ('Muscat'), ('Chardonnay'), ('Glera'), ('Tinta Roriz'), ('Pinotage'), ('Durif'), ('Touriga Nacional'), ('Meritage'), ('Zinfandel'), ('Cabernet Franc'), ('Tempranillo'), ('Nebblolo'), ('Barbera'), ('Mourvedre'), ('Gamay'), ('St. Laurent'),('Carignan'),('Counoise'),('Sémillon'),('Viognier'),('Marsanne'),('Roussanne'),('Albariño'),('Pinot Blanc'),('Vermentino'),('Melon De Bourgogne'),('Gargenega'),('Trebbiano'),('Palomino');
 
 
 -- insert wines into wine table --
 
 
 INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Malbec', 'Bold Red', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Malbec'), (SELECT id FROM temperature WHERE temp = '62-68')); 
+VALUES ('Mourvédre', 'Bold Red', (SELECT id FROM region WHERE country_name = 'Spain') , (SELECT id FROM grape_variety WHERE grape_name = 'Mourvedre'), (SELECT id FROM temperature WHERE temp = '60-70')), ('Pinotage', 'Bold Red', (SELECT id FROM region WHERE country_name = 'Rest of World') , (SELECT id FROM grape_variety WHERE grape_name = 'Pinotage'), (SELECT id FROM temperature WHERE temp = '60-70')), ('Petite Sirah', 'Bold Red', (SELECT id FROM region WHERE country_name = 'US') , (SELECT id FROM grape_variety WHERE grape_name = 'Durif'), (SELECT id FROM temperature WHERE temp = '60-70')), ('Touriga Nacional', 'Bold Red', (SELECT id FROM region WHERE country_name = 'Rest of World') , (SELECT id FROM grape_variety WHERE grape_name = 'Touriga Nacional'), (SELECT id FROM temperature WHERE temp = '60-70')),('Cabernet Sauvignon', 'Bold Red', (SELECT id FROM region WHERE country_name = 'Rest of World') , (SELECT id FROM grape_variety WHERE grape_name = 'Cabernet Sauvignon'), (SELECT id FROM temperature WHERE temp = '60-70')),('Meritage', 'Bold Red', (SELECT id FROM region WHERE country_name = 'US') , (SELECT id FROM grape_variety WHERE grape_name = 'Meritage'), (SELECT id FROM temperature WHERE temp = '60-70')), ('Sangiovese', 'Medium Red', (SELECT id FROM region WHERE country_name = 'Italy') , (SELECT id FROM grape_variety WHERE grape_name = 'Sangiovese'), (SELECT id FROM temperature WHERE temp = '60-70')),('Zinfandel', 'Medium Red', (SELECT id FROM region WHERE country_name = 'US') , (SELECT id FROM grape_variety WHERE grape_name = 'Zinfandel'), (SELECT id FROM temperature WHERE temp = '60-70')),('Cabernet Franc', 'Medium Red', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Cabernet Franc'), (SELECT id FROM temperature WHERE temp = '60-70')),('Tempranillo', 'Medium Red', (SELECT id FROM region WHERE country_name = 'Spain') , (SELECT id FROM grape_variety WHERE grape_name = 'Tempranillo'), (SELECT id FROM temperature WHERE temp = '60-70')),('Nebbiolo', 'Medium Red', (SELECT id FROM region WHERE country_name = 'Italy') , (SELECT id FROM grape_variety WHERE grape_name = 'Nebblolo'), (SELECT id FROM temperature WHERE temp = '60-70')),('Barbera', 'Medium Red', (SELECT id FROM region WHERE country_name = 'Italy') , (SELECT id FROM grape_variety WHERE grape_name = 'Barbera'), (SELECT id FROM temperature WHERE temp = '60-70')),('Mourvédre', 'Medium Red', (SELECT id FROM region WHERE country_name = 'Spain') , (SELECT id FROM grape_variety WHERE grape_name = 'Mourvedre'), (SELECT id FROM temperature WHERE temp = '60-70')),('Grenache', 'Light Red', (SELECT id FROM region WHERE country_name = 'Rest of World') , (SELECT id FROM grape_variety WHERE grape_name = 'Grenache'), (SELECT id FROM temperature WHERE temp = '50-60')),('Gamay', 'Light Red', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Gamay'), (SELECT id FROM temperature WHERE temp = '50-60')), ('St. Laurent', 'Light Red', (SELECT id FROM region WHERE country_name = 'Rest of World') , (SELECT id FROM grape_variety WHERE grape_name = 'St. Laurent'), (SELECT id FROM temperature WHERE temp = '50-60')),('Carignan', 'Light Red', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Carignan'), (SELECT id FROM temperature WHERE temp = '50-60')),('Counoise', 'Light Red', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Counoise'), (SELECT id FROM temperature WHERE temp = '50-60')), ('Provencal Rose', 'Light Red', (SELECT id FROM region WHERE country_name = 'Rest of World') , (SELECT id FROM grape_variety WHERE grape_name = 'Grenache'), (SELECT id FROM temperature WHERE temp = '60-70')), ('Shiraz', 'Bold Red', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Malbec'), (SELECT id FROM temperature WHERE temp = '60-70')), ('Malbec', 'Bold Red', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Malbec'), (SELECT id FROM temperature WHERE temp = '60-70')),('Merlot', 'Medium Red', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Merlot'), (SELECT id FROM temperature WHERE temp = '50-60')),('Pinot Noir', 'Light Red', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Pinot Noir'), (SELECT id FROM temperature WHERE temp = '50-60')), ('White Zinfandel', 'Rose', (SELECT id FROM region WHERE country_name = 'US') , (SELECT id FROM grape_variety WHERE grape_name = 'Zinfandel'), (SELECT id FROM temperature WHERE temp = '50-60')),('Sémillon', 'Rich White', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Sémillon'), (SELECT id FROM temperature WHERE temp = '50-60')),('Viognier', 'Rich White', (SELECT id FROM region WHERE country_name = 'US') , (SELECT id FROM grape_variety WHERE grape_name = 'Viognier'), (SELECT id FROM temperature WHERE temp = '50-60')),('Marsanne', 'Rich White', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Marsanne'), (SELECT id FROM temperature WHERE temp = '50-60')),('Roussanne', 'Rich White', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Roussanne'), (SELECT id FROM temperature WHERE temp = '50-60')), ('Sauvignon Blanc', 'Light White', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Sauvignon Blanc'), (SELECT id FROM temperature WHERE temp = '50-60')),('Albariño', 'Light White', (SELECT id FROM region WHERE country_name = 'Spain') , (SELECT id FROM grape_variety WHERE grape_name = 'Albariño'), (SELECT id FROM temperature WHERE temp = '50-60')),('Pinot Blanc', 'Light White', (SELECT id FROM region WHERE country_name = 'Germany') , (SELECT id FROM grape_variety WHERE grape_name = 'Pinot Blanc'), (SELECT id FROM temperature WHERE temp = '50-60')), ('Vermentino', 'Light White', (SELECT id FROM region WHERE country_name = 'Italy') , (SELECT id FROM grape_variety WHERE grape_name = 'Vermentino'), (SELECT id FROM temperature WHERE temp = '50-60')),('Melon De Bourgogne', 'Light White', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Melon De Bourgogne'), (SELECT id FROM temperature WHERE temp = '50-60')), ('Gargenega', 'Light White', (SELECT id FROM region WHERE country_name = 'Italy') , (SELECT id FROM grape_variety WHERE grape_name = 'Gargenega'), (SELECT id FROM temperature WHERE temp = '50-60')), ('Trebbiano', 'Light White', (SELECT id FROM region WHERE country_name = 'Italy') , (SELECT id FROM grape_variety WHERE grape_name = 'Trebbiano'), (SELECT id FROM temperature WHERE temp = '50-60')), ('Champagne', 'Sparkling', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Sauvignon Blanc'), (SELECT id FROM temperature WHERE temp = '40-50')),('Prosecco', 'Sparkling', (SELECT id FROM region WHERE country_name = 'Italy') , (SELECT id FROM grape_variety WHERE grape_name = 'Glera'), (SELECT id FROM temperature WHERE temp = '40-50')),('Crémant', 'Sparkling', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Gewurztraminer'), (SELECT id FROM temperature WHERE temp = '40-50')), ('Lomardia wine', 'Sparkling', (SELECT id FROM region WHERE country_name = 'Italy') , (SELECT id FROM grape_variety WHERE grape_name = 'Nebbiolo'), (SELECT id FROM temperature WHERE temp = '40-50')), ('Riesling', 'Sweet White', (SELECT id FROM region WHERE country_name = 'Germany') , (SELECT id FROM grape_variety WHERE grape_name = 'Riesling'), (SELECT id FROM temperature WHERE temp = '40-50')), ('Chenin Blanc', 'Sweet White', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Chenin Blanc'), (SELECT id FROM temperature WHERE temp = '40-50')), ('Gewürztraminer', 'Sweet White', (SELECT id FROM region WHERE country_name = 'Germany') , (SELECT id FROM grape_variety WHERE grape_name = 'Gewurztraminer'), (SELECT id FROM temperature WHERE temp = '40-50')), ('Ice Wine', 'Sweet White', (SELECT id FROM region WHERE country_name = 'Germany') , (SELECT id FROM grape_variety WHERE grape_name = 'Riesling'), (SELECT id FROM temperature WHERE temp = '40-50')),('Chardonnay', 'Rich White', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Chardonnay'), (SELECT id FROM temperature WHERE temp = '40-50')),('Moscato', 'Sweet White', (SELECT id FROM region WHERE country_name = 'Italy') , (SELECT id FROM grape_variety WHERE grape_name = 'Muscat'), (SELECT id FROM temperature WHERE temp = '40-50')), ('Port', 'Dessert', (SELECT id FROM region WHERE country_name = 'Rest of World') , (SELECT id FROM grape_variety WHERE grape_name = 'Tinta Roriz'), (SELECT id FROM temperature WHERE temp =  '50-60')), ('Sherry', 'Dessert', (SELECT id FROM region WHERE country_name = 'Rest of World') , (SELECT id FROM grape_variety WHERE grape_name = 'Palomino'), (SELECT id FROM temperature WHERE temp =  '50-60')); 
 
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Merlot', 'Medium Red', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Merlot'), (SELECT id FROM temperature WHERE temp = '56-61')); 
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Pinot Noir', 'Light Red', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Pinot Noir'), (SELECT id FROM temperature WHERE temp = '56-61')); 
-
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Provencal Rose', 'Rose', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Mourverde'), (SELECT id FROM temperature WHERE temp = '41-48')); 
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Chardonnay', 'Rich White', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Chardonnay'), (SELECT id FROM temperature WHERE temp = '41-48')); 
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Sauvignon Blanc', 'Light White', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Sauvignon Blanc'), (SELECT id FROM temperature WHERE temp = '41-48')); 
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Prosecco', 'Sparkling', (SELECT id FROM region WHERE country_name = 'Italy') , (SELECT id FROM grape_variety WHERE grape_name = 'Glera'), (SELECT id FROM temperature WHERE temp = '41-48')); 
-
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Moscato', 'Sweet White', (SELECT id FROM region WHERE country_name = 'Italy') , (SELECT id FROM grape_variety WHERE grape_name = 'Muscat'), (SELECT id FROM temperature WHERE temp = '41-48')); 
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Port', 'Dessert', (SELECT id FROM region WHERE country_name = 'Portugal') , (SELECT id FROM grape_variety WHERE grape_name = 'Tinta Roriz'), (SELECT id FROM temperature WHERE temp =  '56-61')); 
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Mourvédre', 'Bold Red', (SELECT id FROM region WHERE country_name = 'Spain') , (SELECT id FROM grape_variety WHERE grape_name = 'Mourvedre'), (SELECT id FROM temperature WHERE temp = '60-70'));
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Pinotage', 'Bold Red', (SELECT id FROM region WHERE country_name = 'Rest of World') , (SELECT id FROM grape_variety WHERE grape_name = 'Pinotage'), (SELECT id FROM temperature WHERE temp = '60-70'));
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Petite Sirah', 'Bold Red', (SELECT id FROM region WHERE country_name = 'US') , (SELECT id FROM grape_variety WHERE grape_name = 'Durif'), (SELECT id FROM temperature WHERE temp = '60-70'));
-
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Touriga Nacional', 'Bold Red', (SELECT id FROM region WHERE country_name = 'Rest of World') , (SELECT id FROM grape_variety WHERE grape_name = 'Touriga Nacional'), (SELECT id FROM temperature WHERE temp = '60-70'));
-
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Cabernet Sauvignon', 'Bold Red', (SELECT id FROM region WHERE country_name = 'Rest of World') , (SELECT id FROM grape_variety WHERE grape_name = 'Cabernet Sauvignon'), (SELECT id FROM temperature WHERE temp = '60-70'));
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Meritage', 'Bold Red', (SELECT id FROM region WHERE country_name = 'US') , (SELECT id FROM grape_variety WHERE grape_name = 'Meritage'), (SELECT id FROM temperature WHERE temp = '60-70'));
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Sangiovese', 'Medium Red', (SELECT id FROM region WHERE country_name = 'Italy') , (SELECT id FROM grape_variety WHERE grape_name = 'Sangiovese'), (SELECT id FROM temperature WHERE temp = '60-70'));
-
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Zinfandel', 'Bold Red', (SELECT id FROM region WHERE country_name = 'US') , (SELECT id FROM grape_variety WHERE grape_name = 'Zinfandel'), (SELECT id FROM temperature WHERE temp = '60-70'));
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Cabernet Franc', 'Bold Red', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Cabernet Franc'), (SELECT id FROM temperature WHERE temp = '60-70'));
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Tempranillo', 'Bold Red', (SELECT id FROM region WHERE country_name = 'Spain') , (SELECT id FROM grape_variety WHERE grape_name = 'Tempranillo'), (SELECT id FROM temperature WHERE temp = '60-70'));
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Nebbiolo', 'Medium Red', (SELECT id FROM region WHERE country_name = 'Italy') , (SELECT id FROM grape_variety WHERE grape_name = 'Nebblolo'), (SELECT id FROM temperature WHERE temp = '60-70'));
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Barbera', 'Medium Red', (SELECT id FROM region WHERE country_name = 'Italy') , (SELECT id FROM grape_variety WHERE grape_name = 'Barbera'), (SELECT id FROM temperature WHERE temp = '60-70'));
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Mourvédre', 'Medium Red', (SELECT id FROM region WHERE country_name = 'Spain') , (SELECT id FROM grape_variety WHERE grape_name = 'Mourvedre'), (SELECT id FROM temperature WHERE temp = '60-70'));
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Grenache', 'Light Red', (SELECT id FROM region WHERE country_name = 'Rest of World') , (SELECT id FROM grape_variety WHERE grape_name = 'Grenache'), (SELECT id FROM temperature WHERE temp = '50-60'));
-
-INSERT INTO wine (name, wine_type, region_id, variety_id, temp_id)
-VALUES ('Gamay', 'Light Red', (SELECT id FROM region WHERE country_name = 'France') , (SELECT id FROM grape_variety WHERE grape_name = 'Gamay'), (SELECT id FROM temperature WHERE temp = '50-60'));
 
 
 -- insert pairs into the pair relationship table --
@@ -183,149 +91,4 @@ VALUES ('Gamay', 'Light Red', (SELECT id FROM region WHERE country_name = 'Franc
 
 
 INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Strawberry'), (SELECT id FROM wine WHERE name = 'Moscato'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Strawberry'), (SELECT id FROM wine WHERE name = 'Prosecco'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Creme Brulee'), (SELECT id FROM wine WHERE name = 'Port'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Creme Brulee'), (SELECT id FROM wine WHERE name = 'Moscato'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Sweet Potato'), (SELECT id FROM wine WHERE name = 'Moscato'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Sweet Potato'), (SELECT id FROM wine WHERE name = 'Provencal Rose'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Brown Rice'), (SELECT id FROM wine WHERE name = 'Moscato'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Brown Rice'), (SELECT id FROM wine WHERE name = 'Chardonnay'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Brown Rice'), (SELECT id FROM wine WHERE name = 'Provencal Rose'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Brown Rice'), (SELECT id FROM wine WHERE name = 'Pinot Noir'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Carrot'), (SELECT id FROM wine WHERE name = 'Moscato'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Carrot'), (SELECT id FROM wine WHERE name = 'Chardonnay'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Carrot'), (SELECT id FROM wine WHERE name = 'Provencal Rose'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Kale'), (SELECT id FROM wine WHERE name = 'Prosecco'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Kale'), (SELECT id FROM wine WHERE name = 'Sauvignon Blanc'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Cinnamon'), (SELECT id FROM wine WHERE name = 'Port'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Cinnamon'), (SELECT id FROM wine WHERE name = 'Moscato'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Cinnamon'), (SELECT id FROM wine WHERE name = 'Provencal Rose'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Cinnamon'), (SELECT id FROM wine WHERE name = 'Merlot'));
-
--- 
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Chili'), (SELECT id FROM wine WHERE name = 'Moscato'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Chili'), (SELECT id FROM wine WHERE name = 'Prosecco'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Chili'), (SELECT id FROM wine WHERE name = 'Sauvignon Blanc'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Chili'), (SELECT id FROM wine WHERE name = 'Provencal Rose'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Chili'), (SELECT id FROM wine WHERE name = 'Merlot'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Chili'), (SELECT id FROM wine WHERE name = 'Malbec'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Tenderloin'), (SELECT id FROM wine WHERE name = 'Prosecco'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Tenderloin'), (SELECT id FROM wine WHERE name = 'Provencal Rose'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Tenderloin'), (SELECT id FROM wine WHERE name = 'Merlot'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Beef'), (SELECT id FROM wine WHERE name = 'Malbec'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Beef'), (SELECT id FROM wine WHERE name = 'Merlot'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Gouda'), (SELECT id FROM wine WHERE name = 'Merlot'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Gouda'), (SELECT id FROM wine WHERE name = 'Malbec'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Gouda'), (SELECT id FROM wine WHERE name = 'Prosecco'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Gouda'), (SELECT id FROM wine WHERE name = 'Port'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Brie'), (SELECT id FROM wine WHERE name = 'Port'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Brie'), (SELECT id FROM wine WHERE name = 'Moscato'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Brie'), (SELECT id FROM wine WHERE name = 'Prosecco'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Brie'), (SELECT id FROM wine WHERE name = 'Chardonnay'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Brie'), (SELECT id FROM wine WHERE name = 'Pinot Noir'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Turnip'), (SELECT id FROM wine WHERE name = 'Zinfandel'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Eggplant'), (SELECT id FROM wine WHERE name = 'Cabernet Franc'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Chickpea'), (SELECT id FROM wine WHERE name = 'Sauvignon Blanc'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Anise'), (SELECT id FROM wine WHERE name = 'Merlot'));
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Bleu'), (SELECT id FROM wine WHERE name = 'Merlot'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Cheddar'), (SELECT id FROM wine WHERE name = 'Malbec'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Shallot'), (SELECT id FROM wine WHERE name = 'Zinfandel'));
-
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Quinoa'), (SELECT id FROM wine WHERE name = 'Moscato'));
-
-INSERT INTO pair (food_id, wine_id)
-VALUES ((SELECT id FROM food WHERE name = 'Chocolate'), (SELECT id FROM wine WHERE name = 'Port'));
-
-
-
+VALUES ((SELECT id FROM food WHERE name = 'Strawberry'), (SELECT id FROM wine WHERE name = 'Moscato')),((SELECT id FROM food WHERE name = 'Strawberry'), (SELECT id FROM wine WHERE name = 'Prosecco')),((SELECT id FROM food WHERE name = 'Creme Brulee'), (SELECT id FROM wine WHERE name = 'Port')),((SELECT id FROM food WHERE name = 'Creme Brulee'), (SELECT id FROM wine WHERE name = 'Moscato')), ((SELECT id FROM food WHERE name = 'Sweet Potato'), (SELECT id FROM wine WHERE name = 'Moscato')), ((SELECT id FROM food WHERE name = 'Sweet Potato'), (SELECT id FROM wine WHERE name = 'Provencal Rose')),((SELECT id FROM food WHERE name = 'Brown Rice'), (SELECT id FROM wine WHERE name = 'Moscato')),((SELECT id FROM food WHERE name = 'Brown Rice'), (SELECT id FROM wine WHERE name = 'Chardonnay')),((SELECT id FROM food WHERE name = 'Brown Rice'), (SELECT id FROM wine WHERE name = 'Provencal Rose')), ((SELECT id FROM food WHERE name = 'Brown Rice'), (SELECT id FROM wine WHERE name = 'Pinot Noir')), ((SELECT id FROM food WHERE name = 'Carrot'), (SELECT id FROM wine WHERE name = 'Moscato')), ((SELECT id FROM food WHERE name = 'Carrot'), (SELECT id FROM wine WHERE name = 'Chardonnay')),((SELECT id FROM food WHERE name = 'Carrot'), (SELECT id FROM wine WHERE name = 'Provencal Rose')),((SELECT id FROM food WHERE name = 'Kale'), (SELECT id FROM wine WHERE name = 'Prosecco')), ((SELECT id FROM food WHERE name = 'Kale'), (SELECT id FROM wine WHERE name = 'Sauvignon Blanc')), ((SELECT id FROM food WHERE name = 'Cinnamon'), (SELECT id FROM wine WHERE name = 'Port')), ((SELECT id FROM food WHERE name = 'Cinnamon'), (SELECT id FROM wine WHERE name = 'Moscato')),((SELECT id FROM food WHERE name = 'Cinnamon'), (SELECT id FROM wine WHERE name = 'Provencal Rose')),((SELECT id FROM food WHERE name = 'Cinnamon'), (SELECT id FROM wine WHERE name = 'Merlot')), ((SELECT id FROM food WHERE name = 'Chili'), (SELECT id FROM wine WHERE name = 'Moscato')),((SELECT id FROM food WHERE name = 'Chili'), (SELECT id FROM wine WHERE name = 'Prosecco')),((SELECT id FROM food WHERE name = 'Chili'), (SELECT id FROM wine WHERE name = 'Sauvignon Blanc')),((SELECT id FROM food WHERE name = 'Chili'), (SELECT id FROM wine WHERE name = 'Provencal Rose')),((SELECT id FROM food WHERE name = 'Chili'), (SELECT id FROM wine WHERE name = 'Merlot')), ((SELECT id FROM food WHERE name = 'Chili'), (SELECT id FROM wine WHERE name = 'Malbec')), ((SELECT id FROM food WHERE name = 'Tenderloin'), (SELECT id FROM wine WHERE name = 'Prosecco')),((SELECT id FROM food WHERE name = 'Tenderloin'), (SELECT id FROM wine WHERE name = 'Provencal Rose')),((SELECT id FROM food WHERE name = 'Tenderloin'), (SELECT id FROM wine WHERE name = 'Merlot')), ((SELECT id FROM food WHERE name = 'Beef'), (SELECT id FROM wine WHERE name = 'Malbec')), ((SELECT id FROM food WHERE name = 'Beef'), (SELECT id FROM wine WHERE name = 'Merlot')),((SELECT id FROM food WHERE name = 'Gouda'), (SELECT id FROM wine WHERE name = 'Merlot')), ((SELECT id FROM food WHERE name = 'Gouda'), (SELECT id FROM wine WHERE name = 'Malbec')), ((SELECT id FROM food WHERE name = 'Gouda'), (SELECT id FROM wine WHERE name = 'Prosecco')), ((SELECT id FROM food WHERE name = 'Gouda'), (SELECT id FROM wine WHERE name = 'Port')),((SELECT id FROM food WHERE name = 'Brie'), (SELECT id FROM wine WHERE name = 'Port')),((SELECT id FROM food WHERE name = 'Brie'), (SELECT id FROM wine WHERE name = 'Moscato')), ((SELECT id FROM food WHERE name = 'Brie'), (SELECT id FROM wine WHERE name = 'Prosecco')),((SELECT id FROM food WHERE name = 'Brie'), (SELECT id FROM wine WHERE name = 'Chardonnay')), ((SELECT id FROM food WHERE name = 'Brie'), (SELECT id FROM wine WHERE name = 'Pinot Noir')), ((SELECT id FROM food WHERE name = 'Habanero'), (SELECT id FROM wine WHERE name = 'Moscato')), ((SELECT id FROM food WHERE name = 'Turnip'), (SELECT id FROM wine WHERE name = 'Zinfandel')), ((SELECT id FROM food WHERE name = 'Eggplant'), (SELECT id FROM wine WHERE name = 'Cabernet Franc')),((SELECT id FROM food WHERE name = 'Chickpea'), (SELECT id FROM wine WHERE name = 'Sauvignon Blanc')), ((SELECT id FROM food WHERE name = 'Anise'), (SELECT id FROM wine WHERE name = 'Merlot')), ((SELECT id FROM food WHERE name = 'Bleu'), (SELECT id FROM wine WHERE name = 'Merlot')),((SELECT id FROM food WHERE name = 'Cheddar'), (SELECT id FROM wine WHERE name = 'Malbec')),((SELECT id FROM food WHERE name = 'Shallot'), (SELECT id FROM wine WHERE name = 'Zinfandel')), ((SELECT id FROM food WHERE name = 'Quinoa'), (SELECT id FROM wine WHERE name = 'Moscato')), ((SELECT id FROM food WHERE name = 'Chocolate'), (SELECT id FROM wine WHERE name = 'Port')), ((SELECT id FROM food WHERE name = 'Habanero'), (SELECT id FROM wine WHERE name = 'Viognier')),((SELECT id FROM food WHERE name = 'Anise'), (SELECT id FROM wine WHERE name = 'Riesling')),((SELECT id FROM food WHERE name = 'Bleu'), (SELECT id FROM wine WHERE name = 'Sherry')),((SELECT id FROM food WHERE name = 'Salami'), (SELECT id FROM wine WHERE name = 'Grenache')), ((SELECT id FROM food WHERE name = 'Salami'), (SELECT id FROM wine WHERE name = 'Chenin Blanc')), ((SELECT id FROM food WHERE name = 'Salami'), (SELECT id FROM wine WHERE name = 'Marsanne')), ((SELECT id FROM food WHERE name = 'Oyster'), (SELECT id FROM wine WHERE name = 'Champagne')), ((SELECT id FROM food WHERE name = 'Tuna'), (SELECT id FROM wine WHERE name = 'Albariño')), ((SELECT id FROM food WHERE name = 'Crab'), (SELECT id FROM wine WHERE name = 'Sémillon')),((SELECT id FROM food WHERE name = 'Peanut'), (SELECT id FROM wine WHERE name = 'Ice Wine')), ((SELECT id FROM food WHERE name = 'Thyme'), (SELECT id FROM wine WHERE name = 'Vermentino'));
