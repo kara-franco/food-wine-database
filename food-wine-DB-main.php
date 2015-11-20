@@ -20,65 +20,79 @@ if($mysqli->connect_errno){
     <script></script>  
    </head>
   <body>
-       <form>
+     
+   <!-- ------------------------------------ this starts the form ---------------------------->   
+      <form>
           
             <fieldset>
             <legend class="topLabel"> Perfect Match: A food and wine pairing application     </legend>
             <br>
-           
-                <label for="wineInput">Find food suggestions for your wine:</label>
-                    <input type="text" name="wineInput" id="wineInput">
-                <br>
-                   <label for="foodFilter">Select your wine:</label>
-                   <select name="wineChoices" size="4" multiple >   
-                       <option selected> Mourvédre
-                       <option> Pinotage
-                       <option> Petite Sirah
-                       <option> Touriga Nacional
-                       <option> Cabernet Sauvignon
-                       <option> Meritage
-                       <option> Sangiovese
-                       <option> Zinfandel
-                       <option> Cabernet Franc
-                       <option> Tempranillo
-                       <option> Nebbiolo
-                       <option> Barbera
-                       <option> Mourvédre
-                       <option> Grenache
-                       <option> Gamay
-                       <option> St. Laurent
-                       <option> Carignan
-                       <option> Counoise
-                       <option> Provencal Rose
-                       <option> Shiraz
-                       <option> Malbec
-                       <option> Merlot
-                       <option> Pinot Noir   
-                       <option> White Zinfandel
-                       <option> Sémillon
-                       <option> Viognier
-                       <option> Marsanne
-                       <option> Roussanne
-                       <option> Sauvignon Blanc
-                       <option> Albariño
-                       <option> Pinot Blanc
-                       <option> Vermentino
-                       <option> Melon De Bourgogne
-                       <option> Gargenega
-                       <option> Trebbiano
-                       <option> Champagne
-                       <option> Prosecco
-                       <option> Crémant
-                       <option> Lomardia wine
-                       <option> Riesling    
-                       <option> Chenin Blanc
-                       <option> Gewürztraminer
-                       <option> Ice Wine
-                       <option> Chardonnay    
-                       <option> Moscato
-                       <option> Port
-                       <option> Sherry    
-                   </select>
+<!-- ------------------------------------ this starts the testing table ---------------------------->       
+                
+                <div>
+	       <table>
+		   <tr>
+			   <td>Food</td>
+		   </tr>
+		       <tr>
+			       <td>Category</td>
+			       <td>Name</td>
+			
+		  </tr>
+ <!-- ------------------------------------ php for populating the testing table ---------------------------->           
+<?php
+
+if(!($stmt = $mysqli->prepare("SELECT food_category, name FROM food "))){
+	echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
+}
+
+if(!$stmt->execute()){
+	echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+}
+if(!$stmt->bind_result($category, $name)){
+	echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+}
+while($stmt->fetch()){
+ echo "<tr>\n<td>\n" . $category . "\n</td>\n<td>\n" .  $name . "\n</td>\n</tr>";
+}
+$stmt->close();
+?>
+	</table>
+</div>
+                
+  <!-- ------------------------------------ this starts the section for food search  ---------------------------->                     
+                
+                             
+     <label for="wineInput">Find food suggestions for your wine:</label>
+                    
+        <br>
+               
+                
+   <!-- -------------------------------- php for populating select drop down menu ---------------------------->               
+    <fieldset>
+			<legend>Current Wine List: </legend>
+			<select name="wines">
+<?php
+if(!($stmt = $mysqli->prepare("SELECT id, wine.name FROM wine"))){
+	echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
+}
+
+if(!$stmt->execute()){
+	echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+}
+if(!$stmt->bind_result($id, $name)){
+	echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+}
+while($stmt->fetch()){
+	echo '<option value=" '. $id . ' "> ' . $name . '</option>\n';
+}
+$stmt->close();
+?>
+			</select>
+		</fieldset>
+                
+                
+    <!-- ------------------------------------ this ends the php update!!  ---------------------------->       
                     <br>
                 <br>
                 
