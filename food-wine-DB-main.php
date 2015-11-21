@@ -146,7 +146,7 @@ $stmt->close();
     <!-- ------------------- insert wine section ------------------------------------ -->
           <br>          
         <br>
-          <label >Can't find your wine? Input is into our database!</label>
+          <label >Can't find your wine? Input it into our database!</label>
            <br>          
         <br>  
       <div>

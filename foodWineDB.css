@@ -18,6 +18,19 @@ body {
       font-size: 200%
 }
 
+label {
+     color: #238487;
+      font-weight: bold;
+    font-size: 18px;
+}
+
+td {
+    color: #238487;
+      font-weight: bold;
+    font-size: 18px;
+    
+}
+
 /* submit button source: http://stackoverflow.com/questions/17042201/how-to-style-input-and-submit-button-with-css */
 input[type=submit] {
     border: 1px solid #238487;

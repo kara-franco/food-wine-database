@@ -28,7 +28,7 @@ if(!($stmt->bind_param("ssiii",$_POST['name'],$_POST['wine_type'],$_POST['region
 if(!$stmt->execute()){
 	echo "Execute failed: "  . $stmt->errno . " " . $stmt->error;
 } else {
-	echo "Added " . $stmt->affected_rows . " row(s) to our wine list, thank you!";
+	echo "You added " . $stmt->affected_rows . " row to our wine list, thank you!";
 }
 ?>
        	<div class="button"><a href="food-wine-DB-main.php">Return To Main Page</a></div>
