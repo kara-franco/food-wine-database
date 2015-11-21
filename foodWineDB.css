@@ -11,9 +11,11 @@ body {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
 }
 
-/* apply different color to label of form */
-.topLabel {
+/* apply different color to labels of forms */
+.topLabel{
       color: #238487;
+      font-weight: bold;
+      font-size: 200%
 }
 
 /* submit button source: http://stackoverflow.com/questions/17042201/how-to-style-input-and-submit-button-with-css */
