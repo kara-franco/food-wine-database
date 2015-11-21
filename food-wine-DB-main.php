@@ -12,36 +12,33 @@ if($mysqli->connect_errno){
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
-<head>
-	<meta charset="utf-8"/>
+   <head>
+	 <meta charset="utf-8"/>
 	
-	<link rel="stylesheet" type="text/css" href="foodWineDB.css" />
+	 <link rel="stylesheet" type="text/css" href="foodWineDB.css" />
 
 	
-</head>
-  <body>
+   </head>
+<body>
      
-   
+   <legend class="topLabel"> Perfect Match: A food and wine pairing application     </legend>
+        <br>
+        <br>
+        <br>
 
-           <legend class="topLabel"> Perfect Match: A food and wine pairing application     </legend>
-            <br>
-<br>
-      <br>
-
-  <!-- ------------------------------------ this starts the section for food search  ---------------------------->                     
+<!-- ------------------------------------ this starts the section for food search  ---------------------------->                     
                 
                              
-     <label >Find food suggestions for your wine:</label>
-           <br>          
+    <label >Find food suggestions for your wine:</label>
+        <br>          
         <br>
                
-   <!-- --------------------------------  searching by wine name ---------------------------->                 
-   <!-- -----------------------  populating select drop down menu for wines---------------------------->               
-   
-                
+<!-- -----------------------------------  searching for food by wine name ------------------------------------->                 
+<!-- -----------------------------  populating select drop down menu for wines--------------------------------->               
+                  
 <div>
 	<form method="post" action="wineSelect.php">
-                <fieldset>
+            <fieldset>
 			<legend > Search for pairs by your wine name: </legend>
 			<select name="wine">
 <?php
@@ -61,18 +58,19 @@ while($stmt->fetch()){
 $stmt->close();
 ?>
 			</select>
-		</fieldset>
-     	<input type="submit" value="Find Food" />
+		    </fieldset>
+     	
+    <input type="submit" value="Find Food" />
 	</form>
 </div>           
           
-    <!-- --------------------------------  searching by wine type ---------------------------->        
+<!-- ----------------------------------  searching for food by wine type ------------------------------------->        
         <br>
         <br>
                       
 <div>
 	<form method="post" action="wine-typeSelect.php">
-                <fieldset>
+            <fieldset>
 			<legend>Search for pairs by your wine type: </legend>
 
 		
@@ -80,24 +78,25 @@ $stmt->close();
 			<p> Wine Types include: Bold Red, Medium Red, Light Red, Rose, Rich White,  Light White, Sparkling, Sweet White and Dessert  </p>
 	
                     
-		</fieldset>
-     	<input type="submit" value="Find Food" />
+		   </fieldset>
+     	
+    <input type="submit" value="Find Food" />
 	</form>
 </div>           
           
-    <!-- ------------------------------------ searching by   ---------------------------->       
-      <br>          
+     
+        <br>          
         <br>      
               
-       <!-- ------------------------------------ this starts the section for wine search  ---------------------------->  
-       <!-- ------------------------------------ search by food name ---------------------------->  
-         <label>Find wine suggestions for your menu:</label>
-           <br>          
+<!-- --------------------------------- this starts the section for wine search  ------------------------------->  
+<!-- ------------------------------------ searching for wine by food name ------------------------------------->  
+        <label>Find wine suggestions for your menu:</label>
+        <br>          
         <br>      
                    
 <div>
 	<form method="post" action="foodSelect.php">
-                <fieldset>
+            <fieldset>
 			<legend>Search for pairs by food name: </legend>
 			<select name="food">
 <?php
@@ -117,19 +116,20 @@ while($stmt->fetch()){
 $stmt->close();
 ?>
 			</select>
-		</fieldset>
-     	<input type="submit" value="Find Wine" />
+		    </fieldset>
+     	
+        <input type="submit" value="Find Wine" />
 	</form>
 </div>      
       
-    <!-- ------------------------------------ search by two food names ---------------------------->     
+<!-- ---------------------------------- searching for wine by two food names -------------------------------->     
       
         <br>
         <br>
                       
 <div>
 	<form method="post" action="two-foodSelect.php">
-                <fieldset>
+            <fieldset>
 			<legend>Search for pairs by two food names: </legend>
 
 		
@@ -138,26 +138,30 @@ $stmt->close();
             <p> Food Names can be found in documentation  </p>
 	
                     
-		</fieldset>
-     	<input type="submit" value="Find Wine" />
+		    </fieldset>
+     	
+        <input type="submit" value="Find Wine" />
 	</form>
 </div> 
       
-    <!-- ------------------- insert wine section ------------------------------------ -->
-          <br>          
+    
+<!-- ------------------------------------ adding to our database ----------------------------------------- -->    
+<!-- ------------------------------------- insert wine section ------------------------------------------- -->
+        <br>          
         <br>
-          <label >Can't find your wine? Input it into our database!</label>
-           <br>          
+        <label >Can't find your wine? Input it into our database!</label>
+        <br>          
         <br>  
-      <div>
+<div>
 	<form method="post" action="addWine.php"> 
 
-		<fieldset>
+<!-- ----------------------------------- insert wine name and type -------------------------------------- -->
+        <fieldset>
 			<legend>Name</legend>
 			<p>Wine Name: <input type="text" name="name" /></p>
 			<p>Wine Type: <input type="text" name="wine_type" /></p>
 		</fieldset>
-
+<!-- ------------------------------------- insert wine region ------------------------------------------- -->
 		<fieldset>
 			<legend>Region</legend>
 			<select name="region">
@@ -179,8 +183,10 @@ $stmt->close();
 ?>
 			</select>
 		</fieldset>
-		
-        		<fieldset>
+	
+<!-- ------------------------------------- insert grape variety ------------------------------------------- -->
+
+        <fieldset>
 			<legend>Grape Variety</legend>
 			<select name="grape">
 <?php
@@ -202,8 +208,9 @@ $stmt->close();
 			</select>
 		</fieldset>
         
+<!-- ------------------------------------- insert temperature ------------------------------------------- -->
         
-                		<fieldset>
+        <fieldset>
 			<legend>Serving Temperature</legend>
 			<select name="temp">
 <?php
@@ -224,11 +231,7 @@ $stmt->close();
 ?>
 			</select>
 		</fieldset>
-        
-        
-        
-        
-        
+             
         <p><input type="submit" /></p>
 	</form>
 </div>
