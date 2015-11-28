@@ -60,10 +60,11 @@ $stmt->close();
 			</select>
 		    </fieldset>
      	
-    <input type="submit" value="Find Food" />
+    <p><input type="submit" value="Find Food"/></p>
 	</form>
 </div>           
-          
+
+   
 <!-- ----------------------------------  searching for food by wine type ------------------------------------->        
         <br>
         <br>
@@ -75,20 +76,23 @@ $stmt->close();
 
 		
 			<p>Wine Type: <input type="text" name="wine_type" /></p>
-			<p> Wine Types include: Bold Red, Medium Red, Light Red, Rose, Rich White,  Light White, Sparkling, Sweet White and Dessert  </p>
+			<p> <strong>Wine Types include:</strong> Bold Red, Medium Red, Light Red, Rose, Rich White,  Light White, Sparkling, Sweet White and Dessert  </p>
 	
                     
 		   </fieldset>
      	
-    <input type="submit" value="Find Food" />
+    <p><input type="submit" value="Find Food"/></p>
 	</form>
 </div>           
           
      
         <br>          
-        <br>      
+         
               
 <!-- --------------------------------- this starts the section for wine search  ------------------------------->  
+          <label class="sectionBreak" >------------------------------------------------------------------------------------------------------------------------------------</label>
+    <br>
+    <br>
 <!-- ------------------------------------ searching for wine by food name ------------------------------------->  
         <label>Find wine suggestions for your menu:</label>
         <br>          
@@ -118,7 +122,7 @@ $stmt->close();
 			</select>
 		    </fieldset>
      	
-        <input type="submit" value="Find Wine" />
+        <p><input type="submit" value="Find Wine"/></p>
 	</form>
 </div>      
       
@@ -135,20 +139,24 @@ $stmt->close();
 		
 			<p>Name 1: <input type="text" name="food_one" /></p>
 			<p>Name 2: <input type="text" name="food_two" /></p>
-            <p> Food Names can be found in documentation  </p>
+            <p> You can use the scroll down above for food name reference  </p>
 	
                     
 		    </fieldset>
      	
-        <input type="submit" value="Find Wine" />
+       
+          <p><input type="submit" value="Find Wine"/></p>
 	</form>
 </div> 
       
     
-<!-- ------------------------------------ adding to our database ----------------------------------------- -->    
+<!-- ------------------------------------ adding to our database ----------------------------------------- -->   
+        <label class="sectionBreak" >------------------------------------------------------------------------------------------------------------------------------------</label>
+    <br>
+    <br>
 <!-- ------------------------------------- insert wine section ------------------------------------------- -->
         <br>          
-        <br>
+       
         <label >Can't find your wine? Input it into our database!</label>
         <br>          
         <br>  
@@ -157,7 +165,7 @@ $stmt->close();
 
 <!-- ----------------------------------- insert wine name and type -------------------------------------- -->
         <fieldset>
-			<legend>Name</legend>
+			<legend>Input New Wine:</legend>
 			<p>Wine Name: <input type="text" name="name" /></p>
 			<p>Wine Type: <input type="text" name="wine_type" /></p>
 		</fieldset>
@@ -235,7 +243,88 @@ $stmt->close();
         <p><input type="submit" /></p>
 	</form>
 </div>
+
+<!-- ------------------------------------- insert food section ------------------------------------------- -->
+        <br>          
+        <br>
+        <label >Can't find your food? Input it into our database!</label>
+        <br>          
+        <br>  
+<div>
+	<form method="post" action="addFood.php"> 
+
+<!-- ----------------------------------- insert food name, category and type -------------------------------------- -->
+        <fieldset>
+			<legend>Input New Food:</legend>
+			<p>Food Name: <input type="text" name="name" /></p>
+			<p>Main Food Category: <input type="text" name="food_category" /></p>
+            <p>Category Type: <input type="text" name="category_type" /></p>
+		</fieldset>
+        
+        <p><input type="submit" /></p>
+	</form>
+</div>
       
-       
+<!-- ----------------------------------- update food or wines -------------------------------------- -->      
+    
+        <br>          
+        <br>
+        <label >Did you make a mistake inputing your food or wine? Fix it!</label>
+        <br>          
+        <br>  
+<!-- ----------------------------------- update food -------------------------------------- -->
+<div>
+	<form method="post" action="fixFood.php"> 
+        <fieldset>
+			<legend>Fix Food Entry:</legend>
+			<p>Corrected Food Name: <input type="text" name="new_food_name" /></p>
+			<p>Old Name: <input type="text" name="old_food_name" /></p>      
+		</fieldset>
+        
+        <p><input type="submit" /></p>
+	</form>
+</div>
+    
+<!-- ----------------------------------- update wine -------------------------------------- -->
+<div>
+	<form method="post" action="fixWine.php"> 
+        <fieldset>
+			<legend>Fix Wine Entry:</legend>
+			<p>Corrected Wine Name: <input type="text" name="new_wine_name" /></p>
+			<p>Old Name: <input type="text" name="old_wine_name" /></p>      
+		</fieldset>
+        
+        <p><input type="submit" /></p>
+	</form>
+</div>
+     
+ <!-- ------------------------------------- insert new pairs section ------------------------------------------- -->
+     <label class="sectionBreak" >------------------------------------------------------------------------------------------------------------------------------------</label>
+    <br>
+  
+        <br>          
+        <br>
+        <label > Enter new food and wine pairs into our database!</label>
+        <br>          
+        <br>  
+<div>
+	<form method="post" action="addPair.php"> 
+
+<!-- ----------------------------------- insert food name, category and type -------------------------------------- -->
+        <fieldset>
+			<legend>New Pair:</legend>
+			<p>Food Name: <input type="text" name="food_name" /></p>
+			<p>Wine Name: <input type="text" name="wine_name" /></p>
+		</fieldset>
+        
+        <p><input type="submit" /></p>
+	</form>
+</div>   
+    
+    
+    
+    
+    
+    
   </body>
 </html>

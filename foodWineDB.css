@@ -13,14 +13,27 @@ body {
 
 /* apply different color to labels of forms */
 .topLabel{
-      color: #238487;
-      font-weight: bold;
-      font-size: 200%
+    color: #238487;
+    font-weight: bold;
+    font-size: 200%
 }
 
+.sectionBreak{
+    color: #7ab8b8;
+    font-weight: bold;
+    font-size: 18px;  
+    
+}
+
+legend {
+    color: #454497;
+    font-weight: bold;
+}
+
+
 label {
-     color: #238487;
-      font-weight: bold;
+    color: #238487;
+    font-weight: bold;
     font-size: 18px;
 }
 
