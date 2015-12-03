@@ -22,9 +22,9 @@ if($mysqli->connect_errno){
 <body>
      
    <legend class="topLabel"> Perfect Match: A food and wine pairing application     </legend>
+        
         <br>
-        <br>
-        <br>
+        <hr>
 
 <!-- ------------------------------------ this starts the section for food search  ---------------------------->                     
                 
@@ -37,7 +37,7 @@ if($mysqli->connect_errno){
 <!-- -----------------------------  populating select drop down menu for wines--------------------------------->               
                   
 <div>
-	<form method="post" action="wineSelect.php">
+	<form method="get" action="wineSelect.php">
             <fieldset>
 			<legend > Search for pairs by your wine name: </legend>
 			<select name="wine">
@@ -70,7 +70,7 @@ $stmt->close();
         <br>
                       
 <div>
-	<form method="post" action="wine-typeSelect.php">
+	<form method="get" action="wine-typeSelect.php">
             <fieldset>
 			<legend>Search for pairs by your wine type: </legend>
 
@@ -90,16 +90,16 @@ $stmt->close();
          
               
 <!-- --------------------------------- this starts the section for wine search  ------------------------------->  
-          <label class="sectionBreak" >------------------------------------------------------------------------------------------------------------------------------------</label>
+         
     <br>
-    <br>
+    <hr>
 <!-- ------------------------------------ searching for wine by food name ------------------------------------->  
         <label>Find wine suggestions for your menu:</label>
         <br>          
         <br>      
                    
 <div>
-	<form method="post" action="foodSelect.php">
+	<form method="get" action="foodSelect.php">
             <fieldset>
 			<legend>Search for pairs by food name: </legend>
 			<select name="food">
@@ -132,7 +132,7 @@ $stmt->close();
         <br>
                       
 <div>
-	<form method="post" action="two-foodSelect.php">
+	<form method="get" action="two-foodSelect.php">
             <fieldset>
 			<legend>Search for pairs by two food names: </legend>
 
@@ -151,11 +151,11 @@ $stmt->close();
       
     
 <!-- ------------------------------------ adding to our database ----------------------------------------- -->   
-        <label class="sectionBreak" >------------------------------------------------------------------------------------------------------------------------------------</label>
+       
     <br>
-    <br>
+    <hr>
 <!-- ------------------------------------- insert wine section ------------------------------------------- -->
-        <br>          
+             
        
         <label >Can't find your wine? Input it into our database!</label>
         <br>          
@@ -268,7 +268,7 @@ $stmt->close();
 <!-- ----------------------------------- update food or wines -------------------------------------- -->      
     
         <br>          
-        <br>
+        <hr>
         <label >Did you make a mistake inputing your food or wine? Fix it!</label>
         <br>          
         <br>  
@@ -299,11 +299,10 @@ $stmt->close();
 </div>
      
  <!-- ------------------------------------- insert new pairs section ------------------------------------------- -->
-     <label class="sectionBreak" >------------------------------------------------------------------------------------------------------------------------------------</label>
-    <br>
+     
   
         <br>          
-        <br>
+        <hr>
         <label > Enter new food and wine pairs into our database!</label>
         <br>          
         <br>  

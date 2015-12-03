@@ -47,7 +47,7 @@ WHERE qry1.id = qry2.id"))){
 	echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
 }
 
-if(!($stmt->bind_param("ss", $_POST['food_one'], $_POST['food_two']))){
+if(!($stmt->bind_param("ss", $_GET['food_one'], $_GET['food_two']))){
 	echo "Bind failed: "  . $stmt->errno . " " . $stmt->error;
 }
 

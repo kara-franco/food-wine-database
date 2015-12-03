@@ -36,7 +36,7 @@ WHERE wine.wine_type = ? "))){
 	echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
 }
 
-if(!($stmt->bind_param("s",$_POST['wine_type']))){
+if(!($stmt->bind_param("s",$_GET['wine_type']))){
 	echo "Bind failed: "  . $stmt->errno . " " . $stmt->error;
 }
 
